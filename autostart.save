@@ -1,0 +1,21 @@
+#!/bin/sh
+
+unset XCURSOR_THEME
+export XCURSOR_THEME="Default"
+# xsetroot -solid "#000000"
+
+xset r rate 200 50
+xset s off
+xset -dpms
+xset s noblank
+
+xrandr --output DP-0 --mode 2560x1440 --rate 144 --pos 1600x0 \
+       --output HDMI-0 --mode 1600x900 --rate 60 --pos 0x1150
+polybar example & disown
+setxkbmap -layout us,ru -option grp:alt_shift_toggle
+sxbar &
+back4.sh auto ~/.config/hypr/Wallpaper/lain.gif & disown
+xclip
+~/.config/polybar/launch.sh --blocks
+nt -r &
+# rs &
